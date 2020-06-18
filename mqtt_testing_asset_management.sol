@@ -18,4 +18,8 @@ contract asset_management{
         items.push(Item(_serial_number, _asset_type, _date, _time, _manufacturer));
         item_counter++;
     }
+    
+    function getItemCount() public view returns (uint){
+        return item_counter;
+    }
 }
