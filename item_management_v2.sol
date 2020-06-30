@@ -59,20 +59,26 @@ contract item_management{
         return (items[my_id].item_type, items[my_id].manufacturer, items[my_id].th_humidity, items[my_id].th_temp, items[my_id].time, items[my_id].id);
     }
     
-    // Return 0 for success return -1 for failure
-    function addHumidityViolation(uint my_id, uint my_value, uint my_time) public {
+    // Return 1 for success return -1 for failure
+    function addHumidityViolation(uint my_id, uint my_value, uint my_time) public returns (int){
         if(isIdValid(my_id)){
             violations[my_id].humidity.push(VT_Pair(my_value, my_time));
             violations[my_id].humidity_violation_size++;
+            return int(1);
         }
+        
+        return int(-1);
     }
     
-    // Return 0 for success return -1 for failure
-    function addTempViolation(uint my_id, uint my_value, uint my_time) public {
+    // Return 1 for success return -1 for failure
+    function addTempViolation(uint my_id, uint my_value, uint my_time) public returns (int){
         if(isIdValid(my_id)){
             violations[my_id].temp.push(VT_Pair(my_value, my_time));
             violations[my_id].temp_violation_size++;
+            return int(1);
         }
+        
+        return int(-1);
     }
     
     function getHumidityViolationSize(uint my_id) public view returns (uint){
