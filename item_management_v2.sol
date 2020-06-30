@@ -82,11 +82,19 @@ contract item_management{
     }
     
     function getHumidityViolationSize(uint my_id) public view returns (uint){
-        return violations[my_id].humidity_violation_size;
+        if(isIdValid(my_id)){
+            return violations[my_id].humidity_violation_size;
+        }
+        
+        return uint(0);
     }
     
     function getTempViolationSize(uint my_id) public view returns (uint){
-        return violations[my_id].temp_violation_size;
+        if(isIdValid(my_id)){
+            return violations[my_id].temp_violation_size;
+        }
+        
+        return uint(0);
     }
     
     function getHumidityViolationRecord(uint my_id, uint index) public view returns (uint, uint){
