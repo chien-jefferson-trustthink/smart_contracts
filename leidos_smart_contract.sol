@@ -252,4 +252,8 @@ contract asset_management {
     public pure returns (string memory concat_str) {
         return string(abi.encodePacked(a,":", b));
     }
+    
+    function getTotal() public view returns (uint){
+        return assetCountTotal;
+    }
 }
