@@ -256,4 +256,8 @@ contract asset_management {
     function getTotal() public view returns (int){
         return assetCountTotal;
     }
+    
+    function addOne() public {
+        assetCountTotal++;
+    }
 }
