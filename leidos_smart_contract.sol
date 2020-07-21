@@ -253,7 +253,7 @@ contract asset_management {
         return string(abi.encodePacked(a,":", b));
     }
     
-    function getTotal() public view returns (uint){
+    function getTotal() public view returns (int){
         return assetCountTotal;
     }
 }
