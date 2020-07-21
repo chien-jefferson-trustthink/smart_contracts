@@ -7,6 +7,8 @@ contract item_management{
     uint[] ids;
     mapping(uint => Record) violations;
     
+    string random_change;
+    
     struct Item{
         string item_type;
         string manufacturer;
