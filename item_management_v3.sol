@@ -6,7 +6,6 @@ contract item_management{
     mapping(uint => Item) items;
     uint[] serial_numbers;
     mapping(uint => Record) violations;
-    string makeItDifferent;
     
     struct Item{
         string asset_type;
@@ -23,10 +22,8 @@ contract item_management{
     }
     
     struct Geo_Pair{
-        string latitude;
-        uint latitude_value;
-        string longtitude;
-        uint lontitude_value;
+        int latitude;
+        int longtitude;
         uint time;
     }
     
@@ -96,17 +93,14 @@ contract item_management{
     
     function addGeoViolation(
         uint my_serial_number, 
-        string memory my_latitude, 
-        uint my_latitude_value, 
-        string memory my_longtitude, 
-        uint my_longtitude_value , 
+        int my_latitude, 
+        int my_longtitude, 
         uint my_time
     )
         public returns (int)
     {
         if(isIdValid(my_serial_number)){
-            violations[my_serial_number].geo.push(Geo_Pair(my_latitude, my_latitude_value, my_longtitude, 
-            my_longtitude_value, my_time));
+            violations[my_serial_number].geo.push(Geo_Pair(my_latitude, my_longtitude, my_time));
             violations[my_serial_number].geo_violation_size++;
             
             return int(1);
@@ -155,18 +149,14 @@ contract item_management{
     public view returns 
     
     (
-        string memory, 
-        uint, 
-        string memory, 
-        uint, 
+        int, 
+        int, 
         uint
     )
     
     {
-        return (violations[my_serial_number].geo[index].latitude, 
-        violations[my_serial_number].geo[index].latitude_value,
+        return (violations[my_serial_number].geo[index].latitude,
         violations[my_serial_number].geo[index].longtitude, 
-        violations[my_serial_number].geo[index].lontitude_value,
         violations[my_serial_number].geo[index].time);
     }
     
@@ -182,4 +172,6 @@ contract item_management{
         
         return flag;
     }
+    
+    
 }
