@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.6.10;
+pragma solidity ^0.5.10;
 
 contract item_management{
     uint item_counter;
