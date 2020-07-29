@@ -120,7 +120,7 @@ contract item_management{
         return flag;
     }
     
-    function getTrue() returns (bool) {
+    function getTrue() public returns (bool) {
         return true;
     }
 }
