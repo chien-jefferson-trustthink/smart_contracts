@@ -33,4 +33,8 @@ contract item_management{
         return (items[_serial_number].serial_number, items[_serial_number].asset_type, items[_serial_number].date,
         items[_serial_number].time, items[_serial_number].manufacturer);
     }
+    
+    function getTrue() public pure returns (bool){
+        return true;
+    }
 }
