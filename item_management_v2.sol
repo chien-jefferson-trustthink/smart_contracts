@@ -1,13 +1,11 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.5.10;
+pragma solidity ^0.6.10;
 
 contract item_management{
     uint item_counter;
     mapping(uint => Item) items;
     uint[] ids;
     mapping(uint => Record) violations;
-    
-    string random_change;
     
     struct Item{
         string item_type;
@@ -120,7 +118,7 @@ contract item_management{
         return flag;
     }
     
-    function getTrue() public returns (bool) {
+    function getTrue() public pure returns (bool){
         return true;
     }
 }
