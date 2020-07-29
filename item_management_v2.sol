@@ -119,4 +119,8 @@ contract item_management{
         
         return flag;
     }
+    
+    function getTrue() returns (bool) {
+        return true;
+    }
 }
