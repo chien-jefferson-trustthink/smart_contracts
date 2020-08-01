@@ -14,6 +14,10 @@ contract item_management{
         string manufacturer;
         uint th_humidity; // threshold humidity
         uint th_temp; // threshold temperature
+        int th_upper_latitude;
+        int th_lower_latitude;
+        int th_upper_longtitude;
+        int th_lower_longtitude;
         uint time; // epoch time
         uint serial_number; // serial_number
     }
@@ -44,6 +48,10 @@ contract item_management{
         string memory my_manufacturer,
         uint my_th_humidity,
         uint my_th_temp,
+        int my_th_upper_latitude,
+        int my_th_lower_lattitude,
+        int my_th_upper_longtitude,
+        int my_th_lower_longtitude,
         uint my_time,
         uint my_serial_number
     )
@@ -53,7 +61,7 @@ contract item_management{
     {
         if(!isIdValid(my_serial_number)){
             items[my_serial_number] = 
-            Item(my_asset_type, my_manufacturer, my_th_humidity, my_th_temp, my_time, my_serial_number);
+            Item(my_asset_type, my_manufacturer, my_th_humidity, my_th_temp, my_th_upper_latitude, my_th_lower_lattitude, my_th_upper_longtitude, my_th_lower_longtitude, my_time, my_serial_number);
             serial_numbers.push(my_serial_number);
             item_counter++;
             // VT_Pair[] memory temp_humidity;
@@ -174,6 +182,4 @@ contract item_management{
         
         return flag;
     }
-    
-    
 }
