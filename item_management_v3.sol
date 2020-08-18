@@ -6,6 +6,7 @@ contract item_management{
     mapping(uint => Item) items;
     uint[] serial_numbers;
     mapping(uint => Record) violations;
+    uint tester_counter;
     
     
     
