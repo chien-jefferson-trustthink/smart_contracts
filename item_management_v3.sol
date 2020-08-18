@@ -7,7 +7,7 @@ contract item_management{
     uint[] serial_numbers;
     mapping(uint => Record) violations;
     
-    event testing(string tested, string tested2);
+    
     
     struct Item{
         string asset_type;
